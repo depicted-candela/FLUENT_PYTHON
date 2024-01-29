@@ -1,0 +1,10 @@
+'''
+Instance creation of the French Deck
+>>> from FRENCH_DECK import FrenchDeck
+>>> fd = FrenchDeck()
+>>> len(fd) == fd.__len__()
+True
+>>> fd[0] == fd.__getitem__(0)
+True
+
+'''
