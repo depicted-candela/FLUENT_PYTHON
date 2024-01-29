@@ -11,12 +11,14 @@ To run the code, follow these general steps:
 
 ```bash
 python3 FILENAME.py -v
+```
 
 ## Running tests
 Each module includes tests that are executed by the __main__ section of the module itself. To run tests, use the following command:
 
 ```bash
 python3 FILENAME.py
+```
 
 Replace FILENAME.py with the specific Python file you want to test.
 
