@@ -11,13 +11,13 @@ class FrenchDeck:
     ranks = [str(i) for i in range(2, 11)] + list('AJQK')
     # Creates as a variable a list of strings for all possible suits: diamonds, spades
     # hearts, and clubs
-    suits = 'diamonds spades hearts clubs'.split()
+    suits = 'spades diamonds clubs hearts'.split()
     
     # Initialize the class
     def __init__(self):
         # Saves all the possible Cards in this French set using the standardized
         # class for a single object within the set
-        self._cards = [Card(r, s) for r in self.suits for s in self.ranks]
+        self._cards = [Card(r, s) for s in self.suits for r in self.ranks]
     
     # Returns the number of single objects within the French set
     def __len__(self):
