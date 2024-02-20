@@ -75,6 +75,26 @@ class NestedUnpackingMetropolitanAreas:
         print(f'{"Cities":46} | {"Distance":>9}')
         for *citiescountries, distance in three_closest_metropolitan_areas:
             print(f'{str(citiescountries):46} | {distance:9.4f}')
+    
+    def close_metropolitan_areas_if(self, minimum_distance):
+        """Prints the closest metropolitan areas using the sorted tuple created in sort_dict_distance_metropolitan_areas_tuple
+        """
+        # Extracts the first three distances
+        sorted_metropolitan_areas = self.sort_dict_distance_metropolitan_areas_tuple()
+        # Formatted printing of closest metropolitan areas
+        print("Three closest metropolitan areas")
+        print(f'{"Cities":43} | {"Distance":>9}')
+        for record in sorted_metropolitan_areas:
+            (citycountry1, citycountry2), distance = record
+            if distance <= minimum_distance:
+                print(f'{citycountry1:20} - {citycountry2:20} | {distance:9.4f}')
+        print("\n")
+        # Using * to print with less code but uglier our data
+        print(f'{"Cities":46} | {"Distance":>9}')
+        for record in sorted_metropolitan_areas:
+            *citiescountries, distance = record
+            if distance <= minimum_distance:
+                print(f'{str(citiescountries):46} | {distance:9.4f}')
 
 def main():
     ## Ordered by country
@@ -90,7 +110,24 @@ def main():
     nu.metropolitan_areas_in_weast()
     print("\n")
     nu.closest_metropolitan_areas()
+    print("\n")
+    nu.close_metropolitan_areas_if()
 
 
 if __name__ == '__main__':
     main()
+
+
+def main():
+    print(f'{"":15} | {"latitude":>9} | {"longitude":>9}')
+    for record in metro_areas:
+        match record:
+            case [name, _, _, (lat, lon)] if lon <= 0:
+                print(f'{name:15} | {lat:9.4f} | {lon:9.4f}')
+
+def main():
+    print(f'{"":15} | {"latitude":>9} | {"longitude":>9}')
+    for record in metro_areas:
+        name, _, _, (lat, lon) = record
+        if lon <= 0:
+            print(f'{name:15} | {lat:9.4f} | {lon:9.4f}')
