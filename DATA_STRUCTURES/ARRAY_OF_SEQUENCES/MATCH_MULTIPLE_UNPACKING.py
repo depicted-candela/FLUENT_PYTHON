@@ -13,8 +13,10 @@ def function_definition(*args : str) -> dict:
     """
 
     match args:
+        ## for an not empty body
         case ['define', [name, *params], *body] if body:
             return (name, (params, body))
+        ## for an empty body
         case ['define', [name, *params], *body]:
             return (name, (params, body))
 
